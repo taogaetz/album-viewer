@@ -28,6 +28,9 @@ RUN npm ci --omit=dev
 # Copy built application from builder
 COPY --from=builder /app/build ./build
 
+# Copy drizzle config for migrations
+COPY --from=builder /app/drizzle.config.ts ./drizzle.config.ts
+
 # Create directory for SQLite database
 RUN mkdir -p /app/data
 
