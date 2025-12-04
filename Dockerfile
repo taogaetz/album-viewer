@@ -31,6 +31,10 @@ COPY --from=builder /app/build ./build
 # Copy drizzle config for migrations
 COPY --from=builder /app/drizzle.config.ts ./drizzle.config.ts
 
+# Copy schema for migrations
+COPY --from=builder /app/src/lib/server/db/schema.ts ./src/lib/server/db/schema.ts
+
+
 # Create directory for SQLite database
 RUN mkdir -p /app/data
 
