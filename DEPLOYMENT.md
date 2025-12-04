@@ -32,7 +32,7 @@
 ### Important Notes
 
 - **Database Persistence:** Make sure to mount `/app/data` as a volume to persist your SQLite database across container restarts
-- **First Run:** On first deployment, you'll need to run migrations:
+- **First Run:** On first deployment, initialize the database:
   ```bash
   docker exec -it <container-id> npm run db:push
   ```
