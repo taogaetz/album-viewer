@@ -27,7 +27,6 @@ RUN npm ci --omit=dev
 
 # Copy built application from builder
 COPY --from=builder /app/build ./build
-COPY --from=builder /app/drizzle ./drizzle
 
 # Create directory for SQLite database
 RUN mkdir -p /app/data
@@ -40,3 +39,4 @@ EXPOSE 3000
 
 # Start the application
 CMD ["node", "build"]
+
